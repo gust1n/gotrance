@@ -1,0 +1,23 @@
+syntax = "proto2";
+package zrpc;
+
+import "github.com/gogo/protobuf/gogoproto/gogo.proto";
+
+// For speedup
+option (gogoproto.marshaler_all) = true;
+option (gogoproto.unmarshaler_all) = true;
+option (gogoproto.sizer_all) = true;
+
+// Response is an envelope for a service responding to a request from a client
+message Response {
+	optional bytes UUID = 1;
+	optional string path = 2;
+	optional bytes payload = 3;
+
+	optional uint32 status_code = 4;
+
+	optional Error error = 5;
+	message Error {
+		optional string message = 1;
+	}
+}

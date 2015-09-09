@@ -1,0 +1,10 @@
+syntax = "proto2";
+package reverseservicepb;
+
+message ReverseRequest {
+	required string normal_string = 1;
+}
+
+message ReverseResponse {
+	required string reversed_string = 1;
+}

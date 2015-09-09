@@ -1,0 +1,17 @@
+syntax = "proto2";
+package zrpc;
+
+import "github.com/gogo/protobuf/gogoproto/gogo.proto";
+
+// For speedup
+option (gogoproto.marshaler_all) = true;
+option (gogoproto.unmarshaler_all) = true;
+option (gogoproto.sizer_all) = true;
+
+// Request is an envelope for sending a request from a client to a service
+message Request {
+  optional bytes UUID = 1;
+  optional string path = 2;
+  optional bytes payload = 3;
+  optional int64 expires = 4;
+}
